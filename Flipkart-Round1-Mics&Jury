@@ -1,0 +1,39 @@
+# I didn't attempted this in the contest. but i did it now, i took help from my friend. not for the code but approch.
+
+
+
+class Solution:
+    def micsandjury (self, N, M, teams):
+        first = max(teams)
+        last = 1
+        result = first
+        while(last<=first):
+            mid = (last+first)//2
+            c = 0
+            for i in teams:
+                c+= math.ceil(i/mid)
+            if c<=N:
+                first = mid-1
+                result = mid
+            else:
+                last = mid+1
+        return result
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+
+if __name__ == '__main__': 
+    t = int (input ())
+    for _ in range (t):
+        str = input().split()
+        N = int(str[0])
+        M = int(str[1])
+        teams = input().split()
+        for itr in range(M):
+            teams[itr] = int(teams[itr])
+
+        ob = Solution()
+        print(ob.micsandjury(N,M,teams))
+# } Driver Code Ends
